@@ -20,7 +20,11 @@ router.get('/images', async (req, res) => {
     return res.status(400).send(processResponse.error);
   }
 
-  return res.sendFile(processResponse.outputPath!);
+  if (!processResponse.outputPath) {
+    return res.status(400).send('Image transformation failed');
+  }
+
+  return res.sendFile(processResponse.outputPath);
 });
 
 export default router;

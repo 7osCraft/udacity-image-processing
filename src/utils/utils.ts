@@ -6,8 +6,8 @@ export const transformImage = async (
   filename: string,
   width: number,
   height: number,
-  flip: boolean = false,
-  rotation: number = 0
+  flip = false,
+  rotation = 0
 ): Promise<ProcessResponse> => {
   const imagePath = path.resolve('assets/full', `${filename}.jpg`);
   const outputPath = path.resolve(
@@ -41,10 +41,10 @@ export const transformImage = async (
     .flip(flip)
     .rotate(rotation)
     .toFile(outputPath)
-    .then((_) => {
+    .then(() => {
       return { success: true, outputPath: outputPath };
     })
-    .catch((error) => {
+    .catch(() => {
       return { success: false, error: 'Processing failed.' };
     });
 };

@@ -8,8 +8,8 @@
     "start": "npm run build && node dist/index",
     "jasmine": "jasmine",
     "test": "npm run build && npm run jasmine",
-    "lint": "eslint --ext .js,.ts .",
-    "prettier": "prettier --config .prettierrc \"**/*.+(js|ts)\" --write"
+    "lint": "eslint --ext .ts .",
+    "prettier": "prettier --config .prettierrc \"**/*.+(ts)\" --write"
   },
   "author": "Hossam Mansour",
   "license": "ISC",

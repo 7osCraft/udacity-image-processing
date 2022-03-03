@@ -11,6 +11,15 @@ describe('Test api/images endpoint', () => {
     });
     expect(response.status).toBe(200);
   });
+
+  it('errors while getting resized image from api endpoint because image does not exist', async () => {
+    const response = await request(app).get('/api/images').query({
+      filename: 'fjorddd',
+      width: 200,
+      height: 200
+    });
+    expect(response.status).toBe(400);
+  });
 });
 
 describe('Test image processing functions', () => {
