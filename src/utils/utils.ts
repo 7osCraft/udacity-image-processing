@@ -7,14 +7,15 @@ export const transformImage = async (
   width: number,
   height: number,
   flip = false,
-  rotation = 0
+  rotation = 0,
+  format = 'jpg'
 ): Promise<ProcessResponse> => {
   const imagePath = path.resolve('assets/full', `${filename}.jpg`);
   const outputPath = path.resolve(
     'assets/thumb',
     `${filename}-${width}x${height}${flip ? '-flipped' : ''}${
       rotation != 0 ? '-r' + rotation : ''
-    }.jpg`
+    }.${format}`
   );
 
   if (existsSync(outputPath)) {

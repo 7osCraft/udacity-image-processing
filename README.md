@@ -27,16 +27,21 @@ Extra Functionality: Flipping and Rotating images.
 
 #### Query Params:
 
-| Param             | Functionality                               | Type    | Example          |
-| ----------------- | ------------------------------------------- | ------- | ---------------- |
-| filename          | Original Image filename                     | string  | `filename=image` |
-| width             | New width to use                            | number  | `width=200`      |
-| height            | New height to use                           | number  | `height=200`     |
-| flip (optional)   | Whether to flip the image vertically or not | boolean | `flip=true`      |
-| rotate (optional) | Rotation degree to rotate the image         | number  | `rotate=180`     |
+| Param             | Functionality                                     | Type    | Example          |
+| ----------------- | ------------------------------------------------- | ------- | ---------------- |
+| filename          | Original Image filename (must be jpg)             | string  | `filename=image` |
+| width             | New width to use                                  | number  | `width=200`      |
+| height            | New height to use                                 | number  | `height=200`     |
+| flip (optional)   | Whether to flip the image vertically or not       | boolean | `flip=true`      |
+| rotate (optional) | Rotation degree to rotate the image               | number  | `rotate=180`     |
+| format (optional) | Format to use for the output image (Default: jpg) | string  | `format=png`     |
 
 #### Response:
 
 Responds with code 200 and the processed image or code 400 with an error message.
+
+#### Example:
+
+GET `/api/images?filename=fjord&width=200&height=200&flip=true&rotate=180&format=png`
 
 ---

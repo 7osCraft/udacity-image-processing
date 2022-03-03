@@ -4,7 +4,7 @@ import { transformImage } from '../utils/utils';
 const router = express.Router();
 
 router.get('/images', async (req, res) => {
-  const { filename, width, height, flip, rotate } = req.query;
+  const { filename, width, height, flip, rotate, format } = req.query;
 
   const rotateDegreee = rotate ? parseInt(rotate as string) : 0;
 
@@ -13,7 +13,8 @@ router.get('/images', async (req, res) => {
     parseInt(width as string),
     parseInt(height as string),
     flip == 'true',
-    rotateDegreee
+    rotateDegreee,
+    format as string
   );
 
   if (processResponse.success === false) {
