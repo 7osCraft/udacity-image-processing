@@ -22,6 +22,10 @@ export const transformImage = async (
     return { success: true, outputPath: outputPath };
   }
 
+  if (isNaN(width) || isNaN(height)) {
+    return { success: false, error: 'Invalid image size.' };
+  }
+
   if (width <= 0 || height <= 0) {
     return { success: false, error: 'Image size cannot be 0 or negative.' };
   }
